@@ -72,7 +72,7 @@ WHERE
 
 ```
 SELECT 
-    EXTRACT(MONTH FROM payment.payment_date) AS payment_month,
+    DATE_FORMAT(payment.payment_date, '%Y-%m') AS payment_month,
     SUM(payment.amount) AS total_payment,
     COUNT(rental.rental_id) AS rental_count
 FROM 
@@ -84,6 +84,7 @@ GROUP BY
 ORDER BY 
     total_payment DESC
 LIMIT 1;
+
 
 ```
 
